@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (ViewBag.UserName != null)
+    {
+        <h1>Welcome, @ViewBag.UserName!</h1>
+        @if (ViewBag.IsAdmin)
+        {
+            <p>You have admin privileges.</p>
+        }
+        else 
+        {
+            <p>You have not admin privileges.</p>
+        }
+    }
+</div>

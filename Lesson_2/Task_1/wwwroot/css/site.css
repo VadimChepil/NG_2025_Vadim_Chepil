@@ -32,7 +32,3 @@ body {
 .UserName-label, .Password-label {
     margin-right: 115px;
 }
-
-.text-danger:empty {
-    display: none;
-}

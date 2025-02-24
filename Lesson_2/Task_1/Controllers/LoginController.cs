@@ -24,24 +24,17 @@ namespace Task_1.Controllers
             {
                 UserModel? foundUser = _registeredUsers.FirstOrDefault(user => user.UserName == loginData.UserName);
 
-                if (foundUser != null)
+                if (foundUser != null && foundUser.Password == loginData.Password)
                 {
-                    if (foundUser.Password == loginData.Password)
+                    return RedirectToAction("Index", "Home", new
                     {
-                        return RedirectToAction("Index", "Home", new
-                        {
-                            userName = foundUser.UserName,
-                            isAdmin = foundUser.IsAdmin
-                        });
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("Password", "Incorrect password.");
-                    }
+                    userName = foundUser.UserName,
+                    isAdmin = foundUser.IsAdmin
+                    });
                 }
                 else
                 {
-                    ModelState.AddModelError("UserName", "Incorrect username.");
+                    ModelState.AddModelError("Error", "Incorrect username or password!");
                 }
             }
 

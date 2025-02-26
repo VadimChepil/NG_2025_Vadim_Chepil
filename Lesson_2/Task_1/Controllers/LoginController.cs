@@ -28,8 +28,8 @@ namespace Task_1.Controllers
                 {
                     return RedirectToAction("Index", "Home", new
                     {
-                    userName = foundUser.UserName,
-                    isAdmin = foundUser.IsAdmin
+                        userName = foundUser.UserName,
+                        isAdmin = foundUser.IsAdmin
                     });
                 }
                 else
